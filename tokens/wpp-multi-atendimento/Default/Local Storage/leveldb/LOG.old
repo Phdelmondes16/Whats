@@ -1,0 +1,15 @@
+2025/08/17-20:27:55.228 56a4 Reusing MANIFEST C:\Users\henrr\Nova pasta\tokens\wpp-multi-atendimento\Default\Local Storage\leveldb/MANIFEST-000001
+2025/08/17-20:27:55.239 56a4 Recovering log #21
+2025/08/17-20:27:55.243 56a4 Reusing old log C:\Users\henrr\Nova pasta\tokens\wpp-multi-atendimento\Default\Local Storage\leveldb/000021.log 
+2025/08/17-21:20:55.479 6260 Level-0 table #25: started
+2025/08/17-21:20:55.501 6260 Level-0 table #25: 12994 bytes OK
+2025/08/17-21:20:55.503 6260 Delete type=0 #21
+2025/08/17-21:20:55.504 6260 Compacting 4@0 + 1@1 files
+2025/08/17-21:20:55.509 6260 Generated table #26@0: 23 keys, 3835 bytes
+2025/08/17-21:20:55.509 6260 Compacted 4@0 + 1@1 files => 3835 bytes
+2025/08/17-21:20:55.509 6260 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/08/17-21:20:55.511 6260 Delete type=2 #16
+2025/08/17-21:20:55.511 6260 Delete type=2 #18
+2025/08/17-21:20:55.511 6260 Delete type=2 #20
+2025/08/17-21:20:55.511 6260 Delete type=2 #22
+2025/08/17-21:20:55.511 6260 Delete type=2 #25

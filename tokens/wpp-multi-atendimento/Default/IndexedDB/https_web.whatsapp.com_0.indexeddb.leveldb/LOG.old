@@ -1,0 +1,35 @@
+2025/08/17-20:27:55.992 63b8 Reusing MANIFEST C:\Users\henrr\Nova pasta\tokens\wpp-multi-atendimento\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/08/17-20:27:55.992 63b8 Recovering log #76
+2025/08/17-20:27:56.008 63b8 Reusing old log C:\Users\henrr\Nova pasta\tokens\wpp-multi-atendimento\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000076.log 
+2025/08/17-20:27:57.041 5e7c Level-0 table #81: started
+2025/08/17-20:27:57.047 5e7c Level-0 table #81: 204440 bytes OK
+2025/08/17-20:27:57.049 5e7c Delete type=0 #76
+2025/08/17-20:27:57.049 63b8 Manual compaction at level-0 from '\x00\x1d\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1e\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/08/17-20:27:59.182 5c68 Compacting 1@1 + 1@2 files
+2025/08/17-20:27:59.278 5c68 Generated table #82@1: 56904 keys, 2179961 bytes
+2025/08/17-20:27:59.278 5c68 Compacted 1@1 + 1@2 files => 2179961 bytes
+2025/08/17-20:27:59.279 5c68 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/08/17-20:28:14.723 5c68 Level-0 table #84: started
+2025/08/17-20:28:14.760 5c68 Level-0 table #84: 1010678 bytes OK
+2025/08/17-20:28:14.762 5c68 Delete type=2 #78
+2025/08/17-20:28:14.762 5c68 Delete type=0 #80
+2025/08/17-20:28:14.762 5c68 Delete type=2 #81
+2025/08/17-20:28:15.228 5c68 Compacting 1@1 + 1@2 files
+2025/08/17-20:28:15.356 5c68 Generated table #85@1: 56066 keys, 2223768 bytes
+2025/08/17-20:28:15.370 5c68 Generated table #86@1: 3632 keys, 75118 bytes
+2025/08/17-20:28:15.370 5c68 Compacted 1@1 + 1@2 files => 2298886 bytes
+2025/08/17-20:28:15.371 5c68 compacted to: files[ 0 0 2 0 0 0 0 ]
+2025/08/17-20:28:15.372 5c68 Delete type=2 #82
+2025/08/17-20:28:15.372 5c68 Delete type=2 #84
+2025/08/17-20:33:00.387 5e7c Level-0 table #88: started
+2025/08/17-20:33:00.396 5e7c Level-0 table #88: 174378 bytes OK
+2025/08/17-20:33:00.397 5e7c Delete type=0 #83
+2025/08/17-20:33:00.398 63b8 Manual compaction at level-0 from '\x00\x1e\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1f\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/08/17-20:33:00.929 5c68 Compacting 1@1 + 2@2 files
+2025/08/17-20:33:01.013 5c68 Generated table #89@1: 56298 keys, 2225979 bytes
+2025/08/17-20:33:01.019 5c68 Generated table #90@1: 3638 keys, 87580 bytes
+2025/08/17-20:33:01.019 5c68 Compacted 1@1 + 2@2 files => 2313559 bytes
+2025/08/17-20:33:01.020 5c68 compacted to: files[ 0 0 2 0 0 0 0 ]
+2025/08/17-20:33:01.020 5c68 Delete type=2 #85
+2025/08/17-20:33:01.020 5c68 Delete type=2 #86
+2025/08/17-20:33:01.020 5c68 Delete type=2 #88

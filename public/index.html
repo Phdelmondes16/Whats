@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Atendimento WhatsApp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Menu de Navegação (Barra Lateral Esquerda) -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <img src="img/logo.svg" alt="Logo" class="logo">
+        <h2>WPP Multi</h2>
+      </div>
+      
+      <ul class="nav-menu">
+        <li class="nav-item active" data-category="inbox">
+          <i class="fas fa-inbox"></i>
+          <span>Caixa de Entrada</span>
+          <span class="badge">0</span>
+        </li>
+        <li class="nav-item" data-category="mine">
+          <i class="fas fa-user"></i>
+          <span>Minhas Mensagens</span>
+          <span class="badge">0</span>
+        </li>
+        <li class="nav-item" data-category="unassigned">
+          <i class="fas fa-question-circle"></i>
+          <span>Não Atribuídas</span>
+          <span class="badge">0</span>
+        </li>
+        <li class="nav-item" data-category="team">
+          <i class="fas fa-users"></i>
+          <span>Equipe</span>
+          <span class="badge">0</span>
+        </li>
+      </ul>
+      
+      <div class="filter-section">
+        <h3>Filtros</h3>
+        <div class="filter-options">
+          <div class="filter-option" data-status="open">
+            <span class="status-dot status-open"></span>
+            <span>Em Andamento</span>
+          </div>
+          <div class="filter-option" data-status="paused">
+            <span class="status-dot status-paused"></span>
+            <span>Pausado</span>
+          </div>
+          <div class="filter-option" data-status="closed">
+            <span class="status-dot status-closed"></span>
+            <span>Fechado</span>
+          </div>
+          <div class="filter-option" data-status="snoozed">
+            <span class="status-dot status-snoozed"></span>
+            <span>Snoozed</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="user-profile">
+        <div class="user-avatar">
+          <img src="img/avatar-placeholder.svg" alt="Avatar" id="user-avatar">
+          <span class="status-indicator" id="user-status"></span>
+        </div>
+        <div class="user-info">
+          <h4 id="user-name">Usuário</h4>
+          <p id="user-role">Atendente</p>
+        </div>
+        <div class="user-actions">
+          <button id="status-toggle" class="status-btn">
+            <i class="fas fa-circle status-available"></i>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="status-dropdown" id="status-dropdown">
+            <div class="status-option" data-status="available">
+              <i class="fas fa-circle status-available"></i>
+              <span>Disponível</span>
+            </div>
+            <div class="status-option" data-status="busy">
+              <i class="fas fa-circle status-busy"></i>
+              <span>Ocupado</span>
+            </div>
+            <div class="status-option" data-status="away">
+              <i class="fas fa-circle status-away"></i>
+              <span>Ausente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Lista de Conversas (Seção Central) -->
+    <section class="chat-list-section">
+      <div class="chat-list-header">
+        <h2 id="current-category-title">Caixa de Entrada</h2>
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Buscar conversas..." id="search-chat">
+        </div>
+      </div>
+      
+      <div class="chat-list" id="chat-list">
+        <!-- As conversas serão carregadas dinamicamente aqui -->
+        <div class="empty-state">
+          <i class="fas fa-comments"></i>
+          <p>Nenhuma conversa encontrada</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Área de Mensagens da Conversa Ativa (Direita) -->
+    <section class="chat-area" id="chat-area">
+      <div class="empty-chat">
+        <i class="fas fa-comments"></i>
+        <h3>Selecione uma conversa para começar</h3>
+        <p>Escolha uma conversa da lista para visualizar as mensagens</p>
+      </div>
+      
+      <!-- Esta seção será exibida quando uma conversa for selecionada -->
+      <div class="active-chat hidden" id="active-chat">
+        <div class="chat-header">
+          <div class="contact-info">
+            <img src="img/avatar-placeholder.svg" alt="Contact" id="contact-avatar">
+            <div>
+              <h3 id="contact-name">Nome do Contato</h3>
+              <p id="chat-status" class="chat-status">Em Andamento</p>
+            </div>
+          </div>
+          
+          <div class="chat-actions">
+            <button class="action-btn" id="assign-chat" title="Atribuir Conversa">
+              <i class="fas fa-user-plus"></i>
+            </button>
+            <button class="action-btn" id="important-chat" title="Marcar como Importante">
+              <i class="far fa-star"></i>
+            </button>
+            <div class="status-dropdown-wrapper">
+              <button class="action-btn" id="change-status" title="Alterar Status">
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="chat-status-dropdown" id="chat-status-dropdown">
+                <div class="status-option" data-status="open">
+                  <span class="status-dot status-open"></span>
+                  <span>Em Andamento</span>
+                </div>
+                <div class="status-option" data-status="paused">
+                  <span class="status-dot status-paused"></span>
+                  <span>Pausado</span>
+                </div>
+                <div class="status-option" data-status="closed">
+                  <span class="status-dot status-closed"></span>
+                  <span>Fechado</span>
+                </div>
+                <div class="status-option" data-status="snoozed">
+                  <span class="status-dot status-snoozed"></span>
+                  <span>Snoozed</span>
+                </div>
+              </div>
+            </div>
+            <button class="action-btn" id="close-chat" title="Fechar Conversa">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="messages-container" id="messages-container">
+          <!-- As mensagens serão carregadas dinamicamente aqui -->
+        </div>
+        
+        <div class="message-input-area">
+          <div class="message-actions">
+            <button class="action-btn" id="attach-file" title="Anexar Arquivo">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <button class="action-btn" id="quick-replies" title="Respostas Rápidas">
+              <i class="fas fa-bolt"></i>
+            </button>
+          </div>
+          
+          <div class="message-input-wrapper">
+            <textarea id="message-input" placeholder="Digite sua mensagem..."></textarea>
+            <button id="send-message" class="send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Modais -->
+  <div class="modal" id="assign-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Atribuir Conversa</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="user-list" id="assign-user-list">
+          <!-- Lista de usuários será carregada aqui -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-modal">Cancelar</button>
+        <button class="btn btn-primary" id="confirm-assign">Atribuir</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="quick-replies-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Respostas Rápidas</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="quick-replies-list" id="quick-replies-list">
+          <!-- Respostas rápidas serão carregadas aqui -->
+          <div class="quick-reply-item">
+            <h4>Saudação</h4>
+            <p>Olá! Como posso ajudar você hoje?</p>
+          </div>
+          <div class="quick-reply-item">
+            <h4>Agradecimento</h4>
+            <p>Obrigado por entrar em contato conosco. Estamos à disposição para ajudar!</p>
+          </div>
+          <div class="quick-reply-item">
+            <h4>Despedida</h4>
+            <p>Foi um prazer atendê-lo. Tenha um ótimo dia!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="comment-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Adicionar Comentário</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <textarea id="comment-input" placeholder="Digite seu comentário..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-modal">Cancelar</button>
+        <button class="btn btn-primary" id="save-comment">Salvar</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login</h3>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" required>
+          </div>
+          <div class="form-error" id="login-error"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="login-btn">Entrar</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
